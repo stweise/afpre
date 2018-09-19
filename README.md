@@ -22,6 +22,30 @@ AFP| ~/git/hub/afpre$ # do some more work ...
 ```
 You can type `awsenv` to print aws-specific environment information.
 
+## Manual Renewal
+
+Whithin an `afpre` session you can - if you feel the need - manually trigger a token renewal. Either only if your old tokens have expired ...
+```
+$ condrenew
+```
+... or even unconditionally by calling
+```
+$ renew
+```
+You can call `awsenv` to check for your current AWS credentials.
+```
+AFP| ~/git/hub/afpre$ awsenv 
+AWS_ROLE=admin
+AWS_SECRET_ACCESS_KEY=...
+AWS_VALID_SECONDS=3600
+AWS_ACCOUNT=...
+AWS_SESSION_TOKEN=...
+AWS_ACCESS_KEY_ID=...
+AWS_SECURITY_TOKEN=...
+```
+
+In case you find that `condrenew` command somewhat useless you got it pretty much right - because that's what `afpre` does anyway. But since version `0.9.15` both commands are available for subprocesses as well. So even (e. g.) running scripts could trigger their own token renewals.
+
 ## Configuration
 
 ```
